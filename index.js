@@ -1,3 +1,5 @@
+const number = document.querySelector("#phonenum");
+
 function telephoneCheck(str) {
   const format0 = /^\d{10}$/;
   const format1 = /^\d{3}\-\d{3}\-\d{4}$/;
@@ -22,4 +24,16 @@ function telephoneCheck(str) {
   );
 }
 
-telephoneCheck("123-456-4565");
+document.querySelector("#check").addEventListener("click", () => {
+  const result = telephoneCheck(number.value);
+  console.log(number.value);
+  console.log(result);
+
+  if (result) {
+    document.querySelector(".valid").style.display = "block";
+    document.querySelector(".invalid").style.display = "none";
+  } else {
+    document.querySelector(".invalid").style.display = "block";
+    document.querySelector(".valid").style.display = "none";
+  }
+});
